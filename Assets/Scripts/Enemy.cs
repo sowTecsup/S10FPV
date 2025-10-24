@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         initialPos = transform.position;
-        SideDetector();
+        SideDetector(target.transform.position);
     }
 
     void Update()
@@ -24,17 +24,10 @@ public class Enemy : MonoBehaviour
     }
     public void MoveToTarget()
     {
-        if (Vector2.Distance(transform.position, target.transform.position) <= MovementRange)
+        float distanceToTarget = Vector2.Distance(transform.position, target.transform.position);
+        if (IsLookingTarget() && distanceToTarget <= MovementRange) 
         {
-            SideDetector();
-        }
-
-        if (!IsLookingTarget()) return;
-
-        
-        if (Vector2.Distance(transform.position, target.transform.position) <= MovementRange)
-        {
-            SideDetector();
+            SideDetector(target.transform.position);
             if (Vector2.Distance(transform.position, target.transform.position) <= attackRange)
             {
                 print("Atacando al player");
@@ -51,9 +44,15 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            Vector3 dir = initialPos - transform.position;//Normalizada
-            Vector3 normalizedDir = dir.normalized;
-            transform.position += normalizedDir * speed * Time.deltaTime;
+            if (Vector2.Distance(initialPos, transform.position) >= 0.2f)
+            {
+                SideDetector(initialPos);
+                Vector3 dir = initialPos - transform.position;//Normalizada
+                Vector3 normalizedDir = dir.normalized;
+                transform.position += normalizedDir * speed * Time.deltaTime;
+            }
+
+           
         }
         
 
@@ -61,9 +60,9 @@ public class Enemy : MonoBehaviour
 
      
     }
-    public void SideDetector()
+    public void SideDetector(Vector3 target)
     {
-        if(target.transform.position.x >= transform.position.x)
+        if(target.x >= transform.position.x)
         {
             transform.localScale = new Vector3(1, 1, 1);
             DirectionVision = Vector3.right;

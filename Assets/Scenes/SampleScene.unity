@@ -151,9 +151,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1817747999}
   speed: 2
-  MovementRange: 5
+  MovementRange: 4
   attackRange: 0.5
   initialPos: {x: 0, y: 0, z: 0}
+  DirectionVision: {x: 0, y: 0, z: 0}
 --- !u!212 &304916835
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -218,7 +219,7 @@ Transform:
   m_GameObject: {fileID: 304916833}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.95, y: -0.11, z: 0}
+  m_LocalPosition: {x: -1.81, y: 0.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -587,7 +588,7 @@ Transform:
   m_GameObject: {fileID: 1817747999}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.06, y: 0.59, z: 0}
+  m_LocalPosition: {x: 4.11, y: -0.61, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
