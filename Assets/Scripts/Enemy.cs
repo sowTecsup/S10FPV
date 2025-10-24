@@ -39,8 +39,6 @@ public class Enemy : MonoBehaviour
 
                 transform.position += normalizedDir * speed * Time.deltaTime;
             }
-
-
         }
         else
         {
@@ -51,14 +49,7 @@ public class Enemy : MonoBehaviour
                 Vector3 normalizedDir = dir.normalized;
                 transform.position += normalizedDir * speed * Time.deltaTime;
             }
-
-           
         }
-        
-
-       
-
-     
     }
     public void SideDetector(Vector3 target)
     {
@@ -93,4 +84,16 @@ public class Enemy : MonoBehaviour
         }
 
     }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, MovementRange);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawRay(transform.position, DirectionVision);
+        Vector3 TargetDirection = (target.transform.position - transform.position).normalized;
+        Gizmos.DrawRay(transform.position, TargetDirection);
+    }
+    
 }
