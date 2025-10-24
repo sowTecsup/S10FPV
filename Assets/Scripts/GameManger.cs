@@ -3,30 +3,18 @@ using UnityEngine;
 
 public class GameManger : MonoBehaviour
 {
-    [SerializeField] private string[] NombresDeAlumnos = new string[10];
+    public GameObject player;
+    public GameObject enemy;
 
-    [SerializeField] private List<string> NombresDeAlumnos2 = new List<string>();
+    public float distance;
     void Start()
     {
-        NombresDeAlumnos[0] = "Jualian";
-        NombresDeAlumnos[9] = "Jualiano";
-
-        NombresDeAlumnos = new string[20];
-
-
-        NombresDeAlumnos2.Add("asdasd");
-        NombresDeAlumnos2.Add("asdasd");
-        NombresDeAlumnos2.Add("asdasd");
-        NombresDeAlumnos2.Add("asdasd");
-        NombresDeAlumnos2.Add("asdasd");
-        NombresDeAlumnos2[0] = "aasdasd";
-
-        NombresDeAlumnos2.Clear();  
+         
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+        distance = Vector2.Distance(player.transform.position, enemy.transform.position);
     }
 }

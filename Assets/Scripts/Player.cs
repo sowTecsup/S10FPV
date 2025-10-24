@@ -31,22 +31,26 @@ public class Player : MonoBehaviour
         if(Input.GetKey(KeyCode.W))
         {
             Vector3 dir = Vector2.up;
-            transform.position += dir * speed * Time.deltaTime;
+            AddDirection(dir);
         }
         if (Input.GetKey(KeyCode.S))
         {
             Vector3 dir = Vector2.down;
-            transform.position += dir * speed * Time.deltaTime;
+            AddDirection(dir);
         }
         if(Input.GetKey(KeyCode.D))
         {
             Vector3 dir = Vector2.right;
-            transform.position += dir * speed * Time.deltaTime;
+            AddDirection(dir);
         }
         if(Input.GetKey(KeyCode.A))
         {
             Vector3 dir = Vector2.left;
-            transform.position += dir * speed * Time.deltaTime;
+            AddDirection(dir);
         }
+    }
+    public void AddDirection(Vector3 dir)
+    {
+        transform.position += dir * speed * Time.deltaTime;
     }
 }
