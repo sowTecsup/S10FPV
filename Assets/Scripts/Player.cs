@@ -41,11 +41,13 @@ public class Player : MonoBehaviour
         if(Input.GetKey(KeyCode.D))
         {
             Vector3 dir = Vector2.right;
+            transform.localScale = new Vector3(1, 1, 1);
             AddDirection(dir);
         }
         if(Input.GetKey(KeyCode.A))
         {
             Vector3 dir = Vector2.left;
+            transform.localScale = new Vector3(-1, 1, 1);
             AddDirection(dir);
         }
     }
