@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         initialPos = transform.position;
+        SideDetector();
     }
 
     void Update()
@@ -23,12 +24,17 @@ public class Enemy : MonoBehaviour
     }
     public void MoveToTarget()
     {
-
-        if(Vector2.Distance(transform.position, target.transform.position) <= MovementRange)
+        if (Vector2.Distance(transform.position, target.transform.position) <= MovementRange)
         {
-           IsLookingTarget();
-            //SideDetector();
+            SideDetector();
+        }
 
+        if (!IsLookingTarget()) return;
+
+        
+        if (Vector2.Distance(transform.position, target.transform.position) <= MovementRange)
+        {
+            SideDetector();
             if (Vector2.Distance(transform.position, target.transform.position) <= attackRange)
             {
                 print("Atacando al player");
@@ -41,7 +47,7 @@ public class Enemy : MonoBehaviour
                 transform.position += normalizedDir * speed * Time.deltaTime;
             }
 
-               
+
         }
         else
         {
@@ -49,6 +55,9 @@ public class Enemy : MonoBehaviour
             Vector3 normalizedDir = dir.normalized;
             transform.position += normalizedDir * speed * Time.deltaTime;
         }
+        
+
+       
 
      
     }
