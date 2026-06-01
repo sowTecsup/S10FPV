@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     public float currentTime;
 
     public bool isAbilityAblive = true;
+
+    public GameObject BulletPrefab;
     void Start()
     {
         
@@ -20,6 +22,7 @@ public class Player : MonoBehaviour
             TimerToDoSmt();
         }
         MoventPlayer();
+        Shoot();
     }
     public void MoventPlayer()
     {
@@ -39,6 +42,15 @@ public class Player : MonoBehaviour
         //Camera.main.ScreenToWorldPoint()
         // Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 direction = (mousePos - transform.position);
+        direction.z = 0;
+        direction.Normalize();
+
+        if(Input.GetMouseButtonDown(0))
+        {
+            GameObject bullet = Instantiate(BulletPrefab ,transform.position, Quaternion.identity);
+            bullet.transform.up = direction;
+        }
     }
     public void SimpleAttack()
     {

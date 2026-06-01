@@ -375,6 +375,7 @@ MonoBehaviour:
   MaxTime: 10
   currentTime: 0
   isAbilityAblive: 1
+  BulletPrefab: {fileID: 8487797501293138790, guid: fc1d3c558d5227348928119c50e59710, type: 3}
 --- !u!212 &838615147
 SpriteRenderer:
   serializedVersion: 2
