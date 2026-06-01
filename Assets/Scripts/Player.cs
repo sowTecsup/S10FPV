@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
         {
             TimerToDoSmt();
         }
+        MoventPlayer();
     }
     public void MoventPlayer()
     {
@@ -31,6 +32,13 @@ public class Player : MonoBehaviour
 
         transform.position += direction * Speed * Time.deltaTime; 
 
+    }
+    public void Shoot()
+    {
+        // Input.mousePosition
+        //Camera.main.ScreenToWorldPoint()
+        // Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
     public void SimpleAttack()
     {

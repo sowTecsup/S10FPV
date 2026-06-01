@@ -41,6 +41,7 @@ public class Enemy : MonoBehaviour
                 if(isAbleToAttack)
                 {
                     //->GetComponent
+                    Debug.Log("Atacando");
                     Target.GetComponent<Player>().Health -= damage;
                     isAbleToAttack = false;
                 }
@@ -49,10 +50,7 @@ public class Enemy : MonoBehaviour
             {
                 transform.position += direction * Speed * Time.deltaTime;
             }
-        }
-
-
-       
+        }  
     }
     public void TimerToDoSmt()
     {
