@@ -23,6 +23,15 @@ public class Player : MonoBehaviour
         }
         MoventPlayer();
         Shoot();
+
+
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);//Resolucion de la 
+        Vector3 direction = (mousePos - transform.position);
+        direction.z = 0;
+        direction.Normalize();
+
+        transform.up = direction;
+
     }
     public void MoventPlayer()
     {
@@ -41,7 +50,7 @@ public class Player : MonoBehaviour
         // Input.mousePosition
         //Camera.main.ScreenToWorldPoint()
         // Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);//Resolucion de la 
         Vector3 direction = (mousePos - transform.position);
         direction.z = 0;
         direction.Normalize();
